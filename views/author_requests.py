@@ -27,7 +27,7 @@ def get_single_author(id):
         data = db_cursor.fetchone()
 
         # Create an animal instance from the current row
-        author = Author(data['id'], data['email'], data['first_name'], data['last_name'], data ['image'], data['favorite'])
+        author = Author(data['id'], data['first_name'], data['last_name'], data['email'], data ['image'], data['favorite'])
         
         return author.__dict__
       
@@ -45,9 +45,9 @@ def get_all_authors():
         db_cursor.execute("""
         SELECT
             a.id,
-            a.email,
             a.first_name,
             a.last_name,
+            a.email,
             a.image,
             a.favorite
         FROM Author a                
@@ -63,7 +63,7 @@ def get_all_authors():
         for row in dataset:
 
             # create author instance from current row
-            author = Author(row['id'], row['email'], row['first_name'], row['last_name'], row['image'], row['favorite'])
+            author = Author(row['id'], row['first_name'], row['last_name'], row['email'], row['image'], row['favorite'])
             
             # add dictionary representation of author to the list
             authors.append(author.__dict__)
